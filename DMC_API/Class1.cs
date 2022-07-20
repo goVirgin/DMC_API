@@ -146,5 +146,10 @@ namespace DMC_API
 
             nchar = socket.Receive(data, 0, size, SocketFlags.None);
         }
+
+        public void test()
+        {
+            Console.WriteLine("Hello World");
+        }
     }
 }
