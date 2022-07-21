@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="LCPGlobal">
+      <HintPath>..\..\..\..\..\..\Visual Studio 2015\Projects\Solution\towerlifter_wp-LCP-3.0@34fbe64d03e\bin\Debug\MasterLCP\LCPGlobal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

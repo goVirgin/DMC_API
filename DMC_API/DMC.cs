@@ -2,11 +2,43 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 
+using LCPGlobal.Com.Ethernet;
+using LCPGlobal.StateValue;
+using System.Text.RegularExpressions;
+using LCPGlobal.Util;
+
 namespace DMC_API
 {
-    public class Class1
+    public class DMC
     {
-        Socket socket;
+        EthernetClient Socket = null;
+
+        public string Ip { get; set; } = "100.100.100.66";
+        public int Port { get; set; } = 8010;
+
+        private bool _connectStatus = false;
+        public bool ConnectStatus
+        {
+            get { return _connectStatus; }
+        }
+
+        public void Initialize()
+        {
+            Socket = new EthernetClient();
+            Socket.Initialize();
+            Socket.OnConnect += new EthernetConnectEvent(OnConnectStatus);
+            Socket.OnReceive += new EthernetReceiveEvent(OnReceive);
+        }
+
+        private void OnConnectStatus(bool connected)
+        {
+            _connectStatus = connected;
+        }
+
+        private void OnReceive(byte[] data, int dataSize)
+        {
+
+        }
 
         public void Connect()
         {
