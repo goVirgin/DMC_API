@@ -50,6 +50,7 @@ namespace DMC_API
 
         public void Status()
         {
+            #region 데이터 수신
             List<byte> aryByte = new List<byte>();
 
             aryByte.AddRange(BitConverter.GetBytes(8));
@@ -74,6 +75,7 @@ namespace DMC_API
             int index = 0;
 
             result = BitConverter.ToString(data);
+            #endregion
 
             #region Status
             uint status = BitConverter.ToUInt32(data, index);
